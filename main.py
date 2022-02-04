@@ -1,5 +1,7 @@
 import time
 from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 import urllib3
 from bs4 import BeautifulSoup
@@ -46,19 +48,22 @@ while True:
     except:
         printc(colr['cyan'], "Can't find Catzy class on website")
 
-    time.sleep(10)
-"""
-browser = webdriver.Chrome()  # Retrieve chrome
-browser.get("https://accounts.cartzy.com")
-browser.maximize_window()
-username = browser.find_element(By.CLASS_NAME, "alert alert-info")
+    time.sleep(30)
 
-username.click()  # Put cursor in userName element
-username.send_keys(user)  # Enter username
-password = browser.find_element(By.ID, 'password')
-password.click()  # Put cursor in password element
-password.send_keys(pw)  # Enter password
-browser.find_element(By.ID, 'privateComputerLabel').click()
-browser.find_element(By.ID, 'login').click()
-# browser.find_element(By.CLASS_NAME, 'icon-zoom-out zoom-out').click()
-"""
+
+def login():
+    """
+    browser = webdriver.Chrome()  # Retrieve chrome
+    browser.get("https://accounts.cartzy.com")
+    browser.maximize_window()
+    username = browser.find_element(By.CLASS_NAME, "alert alert-info")
+
+    username.click()  # Put cursor in userName element
+    username.send_keys(user)  # Enter username
+    password = browser.find_element(By.ID, 'password')
+    password.click()  # Put cursor in password element
+    password.send_keys(pw)  # Enter password
+    browser.find_element(By.ID, 'privateComputerLabel').click()
+    browser.find_element(By.ID, 'login').click()
+    browser.find_element(By.CLASS_NAME, 'icon-zoom-out zoom-out').click()
+    """
