@@ -1,11 +1,11 @@
 import time
 from datetime import datetime
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 import urllib3
 from bs4 import BeautifulSoup
 from colorama import Fore
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 url = "https://accounts.cartzy.com"
 
@@ -45,14 +45,23 @@ while True:
                 printc(colr['red'], f"Store Creation Not Available at {datetime.now()}")
             case True:
                 printc(colr['green'], f"Store Can Now Be Created at {datetime.now()}")
-    except:
-        printc(colr['cyan'], "Can't find Catzy class on website")
+                browser = webdriver.Chrome()  # Retrieve chrome
+                browser.get(url)
+                browser.maximize_window()
+                token = browser.find_element(By.XPATH, "//input[@id='token']")
+                token.click()
+                token.send_keys("LQYI6X3T")
+                verify = browser.find_element(By.XPATH, "//input[@id='submitToken']")
+                verify.click()
+                input("Press enter to continue: ")
+    except Exception as e:
+        printc(colr['cyan'], f"Can't find Catzy class on website at {datetime.now()}")
 
-    time.sleep(30)
+    time.sleep(300)
 
-
-def login():
     """
+def login():
+
     browser = webdriver.Chrome()  # Retrieve chrome
     browser.get("https://accounts.cartzy.com")
     browser.maximize_window()
